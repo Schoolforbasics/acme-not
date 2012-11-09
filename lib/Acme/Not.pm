@@ -1,53 +1,44 @@
 package Acme::Not;
 
-use 5.006;
-use strict;
-use warnings;
+use 5.006001;
+use Spitty -Base;
+our $VERSION = '0.000001';
+our @EXPORT = qw(acme_not);
+
+sub acme_not() { Acme::Not->new(@_) }
+
+package UNIVERSAL;
+no warnings 'once';
+
+sub is_acme_not { !$self->isa('Acme') }
+
+*is_imperfect = \&is_acme_not;
+*is_the_lowest_point = \&is_acme_not;
+*is_the_lowest_stage = \&is_acme_not;
+*is_the_lowest_point_or_stage = \&is_acme_not;
+*is_one_that_represents_imperfection_of_the_thing_expressed = \&is_acme_not;
+*is_not_the_bizzity_bomb = \&is_acme_not;
+*is_not_teh_shiznit = \&is_acme_not;
+*is_not_leon_brocard = \&is_acme_not;
+
+__DATA__
+=for comment
 
 =head1 NAME
 
-Acme::Not - The great new Acme::Not!
+Acme::Not - The Base of Imperfection
 
 =head1 VERSION
 
-Version 0.01
+Version 0.000001
 
 =cut
 
-our $VERSION = '0.01';
-
+our $VERSION = '0.000001';
 
 =head1 SYNOPSIS
 
-Quick summary of what the module does.
-
-Perhaps a little code snippet.
-
-    use Acme::Not;
-
-    my $foo = Acme::Not->new();
-    ...
-
-=head1 EXPORT
-
-A list of functions that can be exported.  You can delete this section
-if you don't export anything, such as for a purely object-oriented module.
-
-=head1 SUBROUTINES/METHODS
-
-=head2 function1
-
-=cut
-
-sub function1 {
-}
-
-=head2 function2
-
-=cut
-
-sub function2 {
-}
+Acme::Not should confirm that your module is not a subclass of Acme.
 
 =head1 AUTHOR
 
@@ -55,12 +46,7 @@ Schmooster, C<< <schmooster \AT gmail.com> >>
 
 =head1 BUGS
 
-Please report any bugs or feature requests to C<bug-acme-not at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Acme-Not>.  I will be notified, and then you'll
-automatically be notified of progress on your bug as I make changes.
-
-
-
+Please do not report any bugs.
 
 =head1 SUPPORT
 
@@ -68,36 +54,13 @@ You can find documentation for this module with the perldoc command.
 
     perldoc Acme::Not
 
-
-You can also look for information at:
-
-=over 4
-
-=item * RT: CPAN's request tracker (report bugs here)
-
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Acme-Not>
-
-=item * AnnoCPAN: Annotated CPAN documentation
-
-L<http://annocpan.org/dist/Acme-Not>
-
-=item * CPAN Ratings
-
-L<http://cpanratings.perl.org/d/Acme-Not>
-
-=item * Search CPAN
-
-L<http://search.cpan.org/dist/Acme-Not/>
-
-=back
-
-
 =head1 ACKNOWLEDGEMENTS
 
+This is _completely_ templated on Acme: http://search.cpan.org/dist/Acme/
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2012 Schmooster.
+Copyright (c) 2012 Schmooster.
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of either: the GNU General Public License as published
