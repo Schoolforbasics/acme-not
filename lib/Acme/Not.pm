@@ -1,7 +1,7 @@
 package Acme::Not;
 
 use 5.006001;
-use Spitty -Base;
+use Spiffy -Base;
 our $VERSION = '0.000001';
 our @EXPORT = qw(acme_not);
 
