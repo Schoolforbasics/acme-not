@@ -1,6 +1,6 @@
 #!perl -T
 
-use Test::Most tests => 4;
+use Test::Most tests => 7;
 
 BEGIN {
     use_ok( 'Acme::Not' ) || print "Bail out!\n";
@@ -27,3 +27,13 @@ diag( "Testing Acme::Not $Acme::Not::VERSION, Perl $], $^X" );
 {
     my $an = new_ok( 'Acme::Not' );
 }
+
+# check a subclass is not acme
+{
+    my $san = new_ok( 'Subclass::Acme::Not' );
+    ok( ! $san->isa('Acme') );
+    ok( $san->is_acme_not );
+}
+
+package Subclass::Acme::Not;
+use base 'Acme::Not';
