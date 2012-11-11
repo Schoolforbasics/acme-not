@@ -16,6 +16,9 @@ WriteMakefile(
         'Test::Most' => 0,
         'Spiffy' => 0,
     },
+    BUILD_REQUIRES => {
+        'Acme' => 0, # this is a test require 
+    },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'Acme-Not-*' },
 );
